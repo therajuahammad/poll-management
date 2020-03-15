@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title><%= singlePoll.title %></title>
+     <link rel="stylesheet" href="/pub/css/style.css">
+</head>
+<body>
+     <header>
+          <div class="container">
+               <div class="row">
+                    <div class="col-lg-6 m-auto">
+                         <nav class="navbar navbar-expand navbar-light" style="background-color: #e3f2fd;">
+                              <ul class="navbar-nav">
+                                   <li class="nav-item">
+                                        <a class="nav-link" href="/">Home</a>
+                                   </li>
+                                   <li class="nav-item">
+                                        <a class="nav-link" href="/poll">All Poll</a>
+                                   </li>
+                                   <li class="nav-item">
+                                        <a class="nav-link" href="/poll/create">Poll Create</a>
+                                   </li>
+                              </ul>
+                         </nav>
+                    </div>
+               </div>
+          </div>
+     </header>
+     <div class="container mt-5">
+          <div class="row">
+               <div class="col-lg-7 m-auto">
+                    <div class="single-poll mt-3">
+                         <div class="card mt-4">
+                              <div class="card-body">
+                                   <h3 class="card-title"><%= singlePoll.title %></h5>
+                                   <p class="card-text"><%= singlePoll.description %></p>
+                                   <div class="result mt-4">
+                                        <h5>Result:</h5>
+                                        <ul class="list-group">
+                                             <% for(let result of results) { %>
+                                                  <li class="list-group-item">
+                                                       <%= result.name %> <b>(<%= result.percentage.toFixed(2) %>%)</b>
+                                                       <div class="progress mt-2 col-10 p-0">
+                                                            <div class="progress-bar  bg-success" role="progressbar" style="width: <%= result.percentage %>%;"  aria-valuemin="0" aria-valuemax="100">
+                                                                 <%= result.percentage.toFixed(2) %>%
+                                                            </div>
+                                                       </div>
+                                                  </li>
+                                             <% } %>
+                                        </ul>
+                                   </div>
+                                   <div class="opinion mt-4">
+                                        <h5 class="mb-3">What is your Opinion?</h5>
+
+                                        <form action="/poll/<%= singlePoll._id %>" method="POST">
+                                             <% for(let option of singlePoll.options) { %>
+                                                  <div class="custom-control custom-radio">
+                                                       <input type="radio" value="<%= option._id %>" id="<%= option._id %>" name="option" class="custom-control-input">
+                                                       <label class="custom-control-label" for="<%= option._id %>"><%= option.name %></label>
+                                                  </div>
+                                             <% } %>
+
+                                             <input type="submit" value="Submit Your Opinion" class="btn btn-primary mt-3">
+                                        </form>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</body>
+</html>

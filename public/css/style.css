@@ -1,0 +1,19 @@
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+
+.opinion .custom-control-label::before,
+.opinion .custom-control-label::after{
+     top: 6px;
+}
+
+.opinion .custom-control:not(:last-child){
+     margin-bottom: 5px;
+}
+
+.list-group-item{
+     border: none;
+     padding: 0;
+}
+
+.list-group-item:not(:last-child){
+     margin-bottom: 20px;
+}
