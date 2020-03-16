@@ -1,19 +1,44 @@
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
 
 .opinion .custom-control-label::before,
-.opinion .custom-control-label::after{
+.opinion .custom-control-label::after {
      top: 6px;
 }
 
-.opinion .custom-control:not(:last-child){
+.opinion .custom-control:not(:last-child) {
      margin-bottom: 5px;
 }
 
-.list-group-item{
+.list-group-item {
      border: none;
      padding: 0;
 }
 
-.list-group-item:not(:last-child){
+.list-group-item:not(:last-child) {
      margin-bottom: 20px;
+}
+
+.poll-meta button,a.edit {
+     width: 20px;
+     display: inline-block;
+     height: 18px;
+     background-color: transparent;
+     border: none;
+     padding: 0;
+}
+
+.poll-meta {
+     position: absolute;
+     top: 0;
+     right: 0;
+     border-radius: 0 0 0 5px;
+}
+
+.poll-meta form{
+     display: inline-block;
+}
+
+img {
+     display: block;
+     width: 100%;
 }

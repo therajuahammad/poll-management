@@ -5,6 +5,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>All Poll Lists</title>
      <link rel="stylesheet" href="/pub/css/style.css">
+     <link rel="shortcut icon" href="/pub/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
      <header>
@@ -35,10 +36,17 @@
                     <div class="poll-list mt-3">
                          <% for (let p of polls) { %>
                               <div class="card mt-4">
-                                   <div class="card-body">
+                                   <div class="card-body position-relative">
                                         <h5 class="card-title"><%= p.title %></h5>
                                         <p class="card-text"><%= p.description %></p>
-                                        <a href="/poll/<%= p._id %>" class="btn btn-primary">Details</a>
+                                        <a href="/poll/<%= p._id %>" class="btn btn-primary">Vote</a>
+                                        <div class="poll-meta bg-dark p-2">
+                                             <form action="/poll/delete/<%= p._id %>" method="POST" class="mr-2">
+                                                  <button type="submit"><img src="/pub/img/bin.png" alt="bin"/></button>
+                                             </form>
+
+                                             <a href="/poll/update/<%= p._id %>" class="edit"><img src="/pub/img/edit.png" alt="edit"/></a>
+                                        </div>
                                    </div>
                               </div>
                          <% } %>
