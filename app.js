@@ -57,14 +57,16 @@ app.get('/poll', getAllPoll);
 app.get('/', getAllPoll);
 
 // DB Connection & Listen
-mongoose.connect('mongodb://localhost/poll', {
+let connectURL = process.env.MONGODB_URI || 'mongodb://localhost/';
+let PORT = process.env.PORT || 3001;
+mongoose.connect(connectURL + 'heroku_pqn0q0kn', {
           useNewUrlParser: true,
           useUnifiedTopology: true,
           useFindAndModify: false
      })
      .then(() => {
-          app.listen(4444, () => {
-               console.log('Application Ready with PORT 4444');
+          app.listen(PORT, () => {
+               console.log('Application Ready with PORT '+ PORT);
           })
      })
      .catch(err => console.log(err));

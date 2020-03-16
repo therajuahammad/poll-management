@@ -5,8 +5,12 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint .",
-    "start": "nodemon app.js"
-	},
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "13.10.1",
+    "yarn": "1.22.1"
+  },
   "dependencies": {
     "ejs": "^3.0.1",
     "express": "^4.17.1",
