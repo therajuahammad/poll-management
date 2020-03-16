@@ -123,14 +123,36 @@ getUpdatePoll = async (req, res) => {
 
 postUpdatePoll = async (req, res) => {
      let id = req.params.id;
-     let {title, description, options} = req.body;
+     let {
+          title,
+          description,
+          options
+     } = req.body;
+
+     let poll = await Poll.findById(id); 
+     let upOptions = [...poll.options]
+
+     upOptions.map(option=>{
+          return {
+               vote: option.vote
+          }
+     })
+
+     options = options.map(upOpt => {
+          return {
+               name: upOpt,
+               ...upOptions
+          }
+     })
+
      try {
           await Poll.findOneAndUpdate({
                _id: id
           }, {
                $set: {
                     title,
-                    description
+                    description,
+                    options
                }
           })
 

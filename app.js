@@ -24,6 +24,20 @@ app.use(express.json());
 app.use('/pub', express.static('public'));
 
 // All Routes
+
+app.get('/test/:id', async (req,res)=>{
+     let id  = req.params.id;
+     let upVote;
+     await Poll.findById(id, (err,result)=>{
+          if(err){
+               console.log(err);
+          }
+          result.options.map(opt=> {
+               console.log(opt.vote)
+          })
+     })
+})
+
 app.get('/poll/update/:id', getUpdatePoll);
 
 app.post('/poll/update/:id', postUpdatePoll);
@@ -42,7 +56,7 @@ app.get('/poll', getAllPoll);
 
 app.get('/', getAllPoll);
 
-// Connection & Listen
+// DB Connection & Listen
 mongoose.connect('mongodb://localhost/poll', {
           useNewUrlParser: true,
           useUnifiedTopology: true,

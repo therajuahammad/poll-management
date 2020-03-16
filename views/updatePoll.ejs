@@ -55,8 +55,7 @@
                                         <% } %>
                                    </div>
 
-                                   <div class="form-group mt-5">
-                                        <button class="btn btn-dark mr-4" id="add-more-btn" type="button">Add More Option</button>
+                                   <div class="form-group mt-4">
                                         <button class="btn btn-primary" id="submit" type="submit">Update Poll</button>
                                    </div>
                               </div>
@@ -65,25 +64,5 @@
                </div>
           </div>
      </div>
-
-
-     <script>
-          const addBtn = document.querySelector('#add-more-btn');
-          const optionsWrap = document.querySelector('#options');
-          let currentOption = 4;
-
-          addBtn.addEventListener("click",(e)=>{
-               e.preventDefault();
-               let div = document.createElement('div');
-               div.className = 'form-group mt-2';
-               let input = document.createElement('input');
-               input.className = 'form-control';
-               input.type = 'text';
-               input.name = 'options';
-               input.placeholder = `Options ${currentOption++}`;
-               div.appendChild(input);
-               optionsWrap.appendChild(div);
-          });
-     </script>
 </body>
 </html>

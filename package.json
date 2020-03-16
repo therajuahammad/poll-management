@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "nodemon app.js"
+	},
   "dependencies": {
     "ejs": "^3.0.1",
     "express": "^4.17.1",
