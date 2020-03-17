@@ -1,2 +1,4 @@
 # poll-management
-Poll Management, Developed with Node JS, Express JS, MongoDB
+Poll Management APP, Developed with Node JS, Express JS, MongoDB
+
+https://poll-management.herokuapp.com/
