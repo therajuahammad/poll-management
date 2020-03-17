@@ -57,9 +57,9 @@ app.get('/poll', getAllPoll);
 app.get('/', getAllPoll);
 
 // DB Connection & Listen
-let connectURL = process.env.MONGODB_URI || 'mongodb://localhost/';
+let connectURL = process.env.MONGODB_URI || 'mongodb://localhost/poll-app';
 let PORT = process.env.PORT || 3001;
-mongoose.connect(connectURL + 'heroku_pqn0q0kn', {
+mongoose.connect(connectURL, {
           useNewUrlParser: true,
           useUnifiedTopology: true,
           useFindAndModify: false

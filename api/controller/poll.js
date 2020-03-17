@@ -132,16 +132,16 @@ postUpdatePoll = async (req, res) => {
      let poll = await Poll.findById(id); 
      let upOptions = [...poll.options]
 
-     upOptions.map(option=>{
+     options = options.map(upOpt => {
           return {
-               vote: option.vote
+               name: upOpt
           }
      })
 
-     options = options.map(upOpt => {
+     upOptions.map(option=>{
           return {
-               name: upOpt,
-               ...upOptions
+               ...options,
+               vote: option.vote
           }
      })
 
@@ -152,7 +152,7 @@ postUpdatePoll = async (req, res) => {
                $set: {
                     title,
                     description,
-                    options
+                    options: upOptions
                }
           })
 
