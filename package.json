@@ -8,13 +8,15 @@
     "start": "nodemon app.js"
   },
   "engines": {
-    "node": "13.10.1",
-    "yarn": "1.22.1"
+    "node": "13.11.0",
+    "yarn": "1.22.4"
   },
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "mongoose": "^5.9.4",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "validator": "^12.2.0"
   }
 }
